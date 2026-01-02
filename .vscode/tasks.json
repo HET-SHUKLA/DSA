@@ -1,0 +1,18 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "DSA: Run Current File",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-c",
+        "case \"${fileExtname}\" in .ts) tsx \"${file}\" < input.txt > output.txt ;; .java) javac \"${file}\" && java \"${fileBasenameNoExtension}\" < input.txt > output.txt ;; .cpp) g++ -std=c++17 \"${file}\" -O2 -o \"${fileBasenameNoExtension}\" && ./\"${fileBasenameNoExtension}\" < input.txt > output.txt ;; *) echo \"Unsupported file type: ${fileExtname}\" ;; esac"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
